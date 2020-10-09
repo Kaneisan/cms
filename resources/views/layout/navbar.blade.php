@@ -49,6 +49,8 @@
                         <a class="nav-link js-scroll-trigger" href="{{ url('/article') }}">Article</a>
                     </li>
                 @endif
+
+
                     <div class="dropdown1">
                         <button class="dropbtn1">Social Media</button>
                         <div class="dropdown1-content">
@@ -57,7 +59,13 @@
                         <a href="https://www.instagram.com/kanei_01/" target="_blank">Instagram</a>
                         </div>
                     </div>
+                    <li class="nav-item">
+                        <a class="logout nav-link js-scroll-trigger" href="{{route('logout')}}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
+                    </li>
+                    <form id="logout-form" action="{{route("logout")}}" method="POST" style='display:none;'>
+                        @csrf
 
+                    </form>
 
                     {{-- <li class="nav-item">
                         <a class="nav-link" href="#">Page</a>
