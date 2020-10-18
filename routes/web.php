@@ -33,20 +33,27 @@ Route::get('/article/{id}', 'ArticleController@article');//->name('article.detai
 
 Route::get('/sosmed', 'SosmedController');
 
-Route::get('/data', 'DataController');
 
-Route::post('/data/create', 'DataController@create');
-
-Route::get('/data/{id}/edit', 'DataController@edit');
-
-Route::post('/data/{id}/update', 'DataController@update');
-
-Route::get('/data/{id}/delete', 'DataController@delete');
 //Route::get('/article/{id}', function($id){
 //    return view('layout.details', ['id' => $id]);0
 //});
 // Route::get('/article/','ArticleController@test');
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
+
+//Kelola Article
+
+Route::get('/manage', 'ArticleController@index')->name('manage');
+Route::get('/manage/add','ArticleController@add');
+Route::post('/manage/create','ArticleController@create');
+Route::get('/manage/edit/{id}','ArticleController@edit');
+Route::post('/manage/update/{id}','ArticleController@update');
+Route::get('/manage/delete/{id}','ArticleController@delete');
+
+
+Route::get('/data', 'DataController');
+Route::post('/data/create', 'DataController@create');
+Route::get('/data/{id}/edit', 'DataController@edit');
+Route::post('/data/{id}/update', 'DataController@update');
+Route::get('/data/{id}/delete', 'DataController@delete');

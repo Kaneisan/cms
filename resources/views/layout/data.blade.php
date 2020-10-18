@@ -19,10 +19,8 @@
   </header>
   <!-- END : Header -->
 @endsection
-
 @section('main')
   <!-- Main -->
-
   <section class="main">
     <div class="container">
       <div class="row">
@@ -49,16 +47,13 @@
                 <td>{{$siswa->nama_belakang }}</td>
                 <td>{{$siswa->nis}}</td>
                 <td>{{$siswa->alamat}}</td>
-              <td><a href="/data/{{$siswa->id}}/edit"><button type="button" class="btn btn-warning btn-sm">Edit</button></a></td>
-                        <td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">
-                            Tambah
-                        </button></td>
+                <td><a href="/data/{{$siswa->id}}/edit"><button type="button" class="btn btn-warning btn-sm">Edit</button></a></td>
+                <td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">Tambah</button></td>
                         <!-- Modal -->
                         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -86,7 +81,7 @@
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                     <button type="submit" class="btn btn-primary">Submit</button>
-                                </form>
+                                    </form>
                                 </div>
                             </div>
                             </div>

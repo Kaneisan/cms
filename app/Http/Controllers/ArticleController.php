@@ -34,7 +34,7 @@ class ArticleController extends Controller{
         $article = \App\Article::where('id','=',$id)->find($id);
         $articles2 = \App\Article::where ('title','LIKE',"%Bahasa%")->get(); //variabel pada sidebar artikel bahasa
         $articles3 = \App\Article::where ('title','LIKE',"%Game%")->get(); //variabel pada sidebar artikel game
-        $page = $article->title;
+        $page = 'Artikel';
 
         return view('layout.details',[
             'article' => $article,
@@ -42,6 +42,71 @@ class ArticleController extends Controller{
             'articles3' => $articles3,
             'page' => $page,
         ]);
+    }
+    public function index()
+    {
+        $articles = \App\Article::paginate(5);
+        $articles2 = \App\Article::where ('title','LIKE',"%Bahasa%")->get(); //variabel pada sidebar artikel bahasa
+        $articles3 = \App\Article::where ('title','LIKE',"%Game%")->get(); //variabel pada sidebar artikel game
+        $page = 'Artikel';
+        return view('layout.manage',[
+            'articles' => $articles,
+            'articles2' => $articles2,
+            'articles3' => $articles3,
+            'page' => $page,
+        ]);
+    }
+    public function add()
+    {
+        $articles = \App\Article::All();
+        $articles2 = \App\Article::where ('title','LIKE',"%Bahasa%")->get(); //variabel pada sidebar artikel bahasa
+        $articles3 = \App\Article::where ('title','LIKE',"%Game%")->get(); //variabel pada sidebar artikel game
+        $page = 'Artikel';
+        return view('layout.addarticle',[
+            'articles' => $articles,
+            'articles2' => $articles2,
+            'articles3' => $articles3,
+            'page' => $page,
+        ]);
+    }
+    public function create(Request $request)
+    {
+        // \App\Data::create($request->all());
+        // return redirect('/manage')->with('sukses','Data Berhasil Ditambah');
+        \App\Article::create([
+            'title' => $request->title,
+            'content' => $request->content,
+            'feature_image' => $request->feature_image
+        ]);
+        return redirect('/manage');
+    }
+    public function edit($id)
+    {
+        $article = \App\Article::find($id);
+        $articles2 = \App\Article::where ('title','LIKE',"%Bahasa%")->get(); //variabel pada sidebar artikel bahasa
+        $articles3 = \App\Article::where ('title','LIKE',"%Game%")->get(); //variabel pada sidebar artikel game
+        $page = 'Artikel';
+        return view('layout.editarticle',[
+            'article' => $article,
+            'articles2' => $articles2,
+            'articles3' => $articles3,
+            'page' => $page,
+        ]);
+    }
+    public function update($id, Request $request)
+    {
+        $article = \App\Article::find($id);
+        $article->title = $request->title;
+        $article->content = $request->content;
+        $article->feature_image = $request->image;
+        $article->save();
+        return redirect('/manage');
+    }
+    public function delete($id)
+    {
+        $article = \App\Article::find($id);
+        $article->delete();
+        return redirect('/manage');
     }
 /*public function hal($id){
         return 'Halaman ID : '.$id;

@@ -24,7 +24,6 @@ class HomeController extends Controller
             'articles3' => $articles3,
         ]);
     }
-
     /**
      * Show the application dashboard.
      *
@@ -32,12 +31,12 @@ class HomeController extends Controller
      */
     public function index()
     {
+        //mengecek auth
         if(Auth::check()){
-
         }else{
+            //jika gagal akan ditujukan ke login dengan alert login first
             return redirect('login')->with('alert','Login First');
         }
-
         $page = "Home";
         $articles2 = \App\Article::where ('title','LIKE',"%Bahasa%")->get(); //variabel pada sidebar artikel bahasa
         $articles3 = \App\Article::where ('title','LIKE',"%Game%")->get(); //variabel pada sidebar artikel Game

@@ -13,5 +13,6 @@ class Article extends Model
     */
     protected $primaryKey = "id";
     //mengset pK id
+    protected $fillable = ['title', 'content', 'feature_image'];
     public $timestamps = true;
 }

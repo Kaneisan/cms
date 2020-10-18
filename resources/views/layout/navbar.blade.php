@@ -31,7 +31,7 @@
                         <a class="nav-link js-scroll-trigger" href="{{ url('/about') }}">About</a>
                     </li>
                 @endif
-                @if ($page=="Data")
+                {{-- @if ($page=="Data")
                     <li class="nav-item active">
                         <a class="nav-link js-scroll-trigger" href="{{ url('/data') }}">Data</a>
                     </li>
@@ -39,7 +39,7 @@
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="{{ url('/data') }}">Data</a>
                     </li>
-                @endif
+                @endif --}}
                 @if ($page=="Artikel")
                     <li class="nav-item active">
                         <a class="nav-link js-scroll-trigger" href="{{ url('/article') }}">Article</a>
