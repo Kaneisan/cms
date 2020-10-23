@@ -49,7 +49,15 @@
                         <a class="nav-link js-scroll-trigger" href="{{ url('/article') }}">Article</a>
                     </li>
                 @endif
-
+                @if ($page=="Manage")
+                    <li class="nav-item active">
+                        <a class="nav-link js-scroll-trigger" href="{{ url('/manage') }}">Manage</a>
+                    </li>
+                @else
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="{{ url('/manage') }}">Manage</a>
+                    </li>
+                @endif
 
                     <div class="dropdown1">
                         <button class="dropbtn1">Social Media</button>

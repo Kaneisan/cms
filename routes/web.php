@@ -26,13 +26,9 @@
 // Route::get('/home', 'HomeController@index');
 
 Route::get('/about', 'AboutController');
-
 Route::get('/article', 'ArticleController');
-
 Route::get('/article/{id}', 'ArticleController@article');//->name('article.detail');
-
 Route::get('/sosmed', 'SosmedController');
-
 
 //Route::get('/article/{id}', function($id){
 //    return view('layout.details', ['id' => $id]);0
