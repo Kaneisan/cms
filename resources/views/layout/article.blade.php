@@ -7,7 +7,7 @@
 
 ('belajar_laravel/images/contact-bg.jpg') }}') no-repeat center center;">
     <div class="container text-center">
-    <h1>Article</h1>
+    <h1>{{$page}}</h1>
       <p class="lead" style="color:white" >Kumpulan artikel yang telah saya buat</p>
     </div>
   </header>

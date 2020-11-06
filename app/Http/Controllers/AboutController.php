@@ -29,4 +29,5 @@ class AboutController extends Controller
             'articles3' => $articles3,
         ]);
     }
+
 }

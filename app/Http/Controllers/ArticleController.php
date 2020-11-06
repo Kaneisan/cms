@@ -3,9 +3,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Cache;
 use Auth;
+use Illuminate\Support\Facades\Gate;
 date_default_timezone_set('Asia/Jakarta');
 class ArticleController extends Controller{
-
+    public function __construct()
+    {
+        $this->middleware(function($request, $next){
+            if(Gate::allows('manage-articles'))return $next($request);
+            // abort(403,'Anda tidak memiliki cukup hak akses');
+            return redirect()->back();
+        });
+    }
     public function __invoke(Request $request){
         if(Auth::check()){
 

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Auth;
 class DataController extends Controller
 {
+
     public function __invoke(){
         if(Auth::check()){
 

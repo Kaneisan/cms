@@ -13,24 +13,16 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="nav navbar-nav ml-auto">
-                @if ($page=="Home")
-                    <li class="nav-item active">
+                    <li class="nav-item  {{ Route::is('home') ? 'active' : '' }}">
+                        @can('user-display')
                         <a class="nav-link js-scroll-trigger" href="{{ url('/home') }}">Home</a>
+                        @endcan
                     </li>
-                @else
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="{{ url('/home') }}">Home</a>
-                    </li>
-                @endif
-                @if ($page=="About")
-                    <li class="nav-item active">
+                    <li class="nav-item  {{ Route::is('about') ? 'active' : '' }}">
+                        @can('user-display')
                         <a class="nav-link js-scroll-trigger" href="{{ url('/about') }}">About</a>
+                        @endcan
                     </li>
-                @else
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="{{ url('/about') }}">About</a>
-                    </li>
-                @endif
                 {{-- @if ($page=="Data")
                     <li class="nav-item active">
                         <a class="nav-link js-scroll-trigger" href="{{ url('/data') }}">Data</a>
@@ -40,41 +32,37 @@
                         <a class="nav-link js-scroll-trigger" href="{{ url('/data') }}">Data</a>
                     </li>
                 @endif --}}
-                @if ($page=="Artikel")
-                    <li class="nav-item active">
+                    <li class="nav-item {{ Route::is('article') ? 'active' : '' }}">
+                        @can('manage-articles')
                         <a class="nav-link js-scroll-trigger" href="{{ url('/article') }}">Article</a>
+                        @endcan
                     </li>
-                @else
-                    <li class="nav-item ">
-                        <a class="nav-link js-scroll-trigger" href="{{ url('/article') }}">Article</a>
-                    </li>
-                @endif
-                @if ($page=="Manage")
-                    <li class="nav-item active">
+                    <li class="nav-item {{ Route::is('manage') ? 'active' : '' }}">
+                        @can('manage-articles')
                         <a class="nav-link js-scroll-trigger" href="{{ url('/manage') }}">Manage</a>
+                        @endcan
                     </li>
-                @else
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="{{ url('/manage') }}">Manage</a>
-                    </li>
-                @endif
-
-                    <div class="dropdown1">
+                    <div class="dropdown1 {{ Route::is('about') ? 'active' : '' }}">
+                        @can('user-display')
                         <button class="dropbtn1">Social Media</button>
                         <div class="dropdown1-content">
                         <a href="https://www.facebook.com/Kaneisan/" target="_blank">Facebook</a>
                         <a href="https://twitter.com/saddoggoo" target="_blank">Twitter</a>
                         <a href="https://www.instagram.com/kanei_01/" target="_blank">Instagram</a>
                         </div>
+                        @endcan
+                    </div>
+                    <div>
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->name }} <span class="caret"></span>
+                        </a>
                     </div>
                     <li class="nav-item">
                         <a class="logout nav-link js-scroll-trigger" href="{{route('logout')}}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
                     </li>
                     <form id="logout-form" action="{{route("logout")}}" method="POST" style='display:none;'>
                         @csrf
-
                     </form>
-
                     {{-- <li class="nav-item">
                         <a class="nav-link" href="#">Page</a>
                     </li> --}}
