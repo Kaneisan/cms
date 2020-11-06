@@ -10,8 +10,8 @@ class ArticleController extends Controller{
     {
         $this->middleware(function($request, $next){
             if(Gate::allows('manage-articles'))return $next($request);
-            // abort(403,'Anda tidak memiliki cukup hak akses');
-            return redirect()->back();
+            abort(403,'Anda tidak memiliki cukup hak akses');
+            //return redirect()->back();
         });
     }
     public function __invoke(Request $request){
