@@ -15,8 +15,16 @@ class User extends Authenticatable
      *
      * @var array
      */
+    protected $table = "users";
+    /*
+    variable table disamakan dengan nama table
+    yang sudah dibuat di database laravel
+    */
+    protected $primaryKey = "id";
+    //mengset pK id
+    public $timestamps = true;
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','roles',
     ];
 
     /**
@@ -36,4 +44,5 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
 }

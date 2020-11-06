@@ -39,7 +39,12 @@
                     </li>
                     <li class="nav-item {{ Route::is('manage') ? 'active' : '' }}">
                         @can('manage-articles')
-                        <a class="nav-link js-scroll-trigger" href="{{ url('/manage') }}">Manage</a>
+                        <a class="nav-link js-scroll-trigger" href="{{ url('/manage') }}">Manage Article</a>
+                        @endcan
+                    </li>
+                    <li class="nav-item {{ Route::is('manageusers') ? 'active' : '' }}">
+                        @can('manage-articles')
+                        <a class="nav-link js-scroll-trigger" href="{{ url('/manageuser') }}">Manage User</a>
                         @endcan
                     </li>
                     <div class="dropdown1 {{ Route::is('about') ? 'active' : '' }}">

@@ -54,3 +54,12 @@ Route::post('/data/create', 'DataController@create');
 Route::get('/data/{id}/edit', 'DataController@edit');
 Route::post('/data/{id}/update', 'DataController@update');
 Route::get('/data/{id}/delete', 'DataController@delete');
+
+Route::get('/manageuser', 'UserController@index')->name('manage user');
+Route::get('/manageuser/add', 'UserController@add');
+Route::post('/manageuser/create', 'UserController@create');
+Route::get('/manageuser/edit/{id}', 'UserController@edit');
+Route::post('/manageuser/update/{id}', 'UserController@update');
+Route::get('/manageuser/delete', 'UserController@delete');
+Route::get('/manageuser/delete/{id}', 'UserController@delete');
+
