@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Cache;
 use Auth;
+use PDF;
 use Illuminate\Support\Facades\Gate;
 date_default_timezone_set('Asia/Jakarta');
 class ArticleController extends Controller{
@@ -81,10 +82,14 @@ class ArticleController extends Controller{
     {
         // \App\Data::create($request->all());
         // return redirect('/manage')->with('sukses','Data Berhasil Ditambah');
+        if($request->file('image')){
+            $image_name = $request->file('image')->store('image', 'public');
+
+        }
         \App\Article::create([
             'title' => $request->title,
             'content' => $request->content,
-            'feature_image' => $request->feature_image
+            'feature_image' => $image_name,
         ]);
         return redirect('/manage');
     }
@@ -106,7 +111,13 @@ class ArticleController extends Controller{
         $article = \App\Article::find($id);
         $article->title = $request->title;
         $article->content = $request->content;
-        $article->feature_image = $request->image;
+
+        if($article->feature_image && file_exists(
+            storage_path('app/public/' . $article->feature_image))){
+                \Storage::delete('public/'.$article->feature_image);
+            }
+        $image_name = $request->file('image')->store('images', 'public');
+        $article->feature_image = $image_name;
         $article->save();
         return redirect('/manage');
     }
@@ -115,6 +126,15 @@ class ArticleController extends Controller{
         $article = \App\Article::find($id);
         $article->delete();
         return redirect('/manage');
+    }
+    public function cetak_pdf(){
+        $article = \App\Article::all();
+        $page = 'Artikel';
+        $pdf = PDF::loadview('layout.articles_pdf',
+            [
+                'article'=>$article,
+            ]);
+        return $pdf->download('cetak_artikel.pdf');
     }
 /*public function hal($id){
         return 'Halaman ID : '.$id;

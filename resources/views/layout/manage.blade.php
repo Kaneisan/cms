@@ -22,6 +22,7 @@
         <div class="col-lg-9 mx-auto">
             <table class="table table-bordered table-striped">
                 <a href="manage/add" class="btn btn-primary">Tambah Data</a>
+                <button type="button" class="btn btn-info"><a href="{{ route('cetak')}}" target="_blank" class="badge badgedanger">Cetak PDF</a></button></td>
                 <thead class="thead-dark">
                     <tr>
                         <th style="text-align:center">No</th>
@@ -36,8 +37,9 @@
                         <td style="text-align:center">{{$a->id}}</td>
                         <td>{{$a->title}}</td>
                         <td>{{$a->updated_at}}</td>
-                        <td style="text-align:center"><button type="button" class="btn btn-primary"><a href="manage/edit/{{ $a->id }}" class="badge badgewarning">Edit</a></button></td>
-                        <td style="text-align:center"><button type="button" class="btn btn-danger"><a href="manage/delete/{{ $a->id }}" class="badge badgedanger">Hapus</a></button></td>
+                        <td style="text-align:center"><button type="button" class="btn btn-primary"><a href="manage/edit/{{ $a->id }}" target="_blank" class="badge badgewarning">Edit</a></button></td>
+                        <td style="text-align:center"><button type="button" class="btn btn-danger"><a href="manage/delete/{{ $a->id }}" target="_blank" class="badge badgedanger">Hapus</a></button></td>
+
                     </tr>
                 @endforeach
 
