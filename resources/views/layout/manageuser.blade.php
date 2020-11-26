@@ -7,8 +7,8 @@
 
 ('belajar_laravel/images/about-bg.jpg') }}') no-repeat top center;">
     <div class="container text-center">
-      <h1>Data Article</h1>
-      <p class="lead" style="color:white" >Manage data article</p>
+      <h1>Data User</h1>
+      <p class="lead" style="color:white" >Manage data user</p>
     </div>
   </header>
   <!-- END : Header -->
@@ -29,6 +29,7 @@
                         <th style="text-align:center">Nama</th>
                         <th style="text-align:center">Email</th>
                         <th style="text-align:center">Roles</th>
+                        <th style="text-align:center">Profile</th>
                         <th style="text-align:center" colspan="2">Fitur</th>
                     </tr>
                 </thead>
@@ -39,6 +40,7 @@
                         <td>{{$a->name}}</td>
                         <td>{{$a->email}}</td>
                         <td>{{$a->roles}}</td>
+                        <td><img width="100px" src="{{asset('storage/'.$a->profile)}}"></td>
                         <td style="text-align:center"><button type="button" class="btn btn-primary"><a href="manageuser/edit/{{ $a->id }}" class="badge badgewarning">Edit</a></button></td>
                         <td style="text-align:center"><button type="button" class="btn btn-danger"><a href="manageuser/delete/{{ $a->id }}" class="badge badgedanger">Hapus</a></button></td>
                     </tr>

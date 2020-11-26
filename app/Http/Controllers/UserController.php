@@ -81,7 +81,7 @@ class UserController extends Controller
         $users->password = $request->password;
         $users->roles = $request->roles;
         if($users->profile && file_exists(storage_path('app/public/' . $users->profile))){
-            \Storage::delete('public/'.$user->profile);
+            \Storage::delete('public/'.$users->profile);
         }
         $image_name = $request->file('image')->store('images', 'public');
         $users->profile = $image_name;

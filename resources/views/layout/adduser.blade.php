@@ -20,7 +20,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-9 mx-auto">
-            <form action="/manageuser/create" method="POST" enctype="multipart/form-data>
+            <form action="/manageuser/create" method="POST" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="form-group">
                     <label for="name">Nama</label>
