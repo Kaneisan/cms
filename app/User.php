@@ -24,7 +24,7 @@ class User extends Authenticatable
     //mengset pK id
     public $timestamps = true;
     protected $fillable = [
-        'name', 'email', 'password','roles',
+        'name', 'email', 'password','roles', 'profile'
     ];
 
     /**

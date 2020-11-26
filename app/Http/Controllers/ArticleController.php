@@ -129,13 +129,19 @@ class ArticleController extends Controller{
     }
     public function cetak_pdf(){
         $article = \App\Article::all();
-        $page = 'Artikel';
-        $pdf = PDF::loadview('layout.articles_pdf',
-            [
-                'article'=>$article,
-            ]);
-        return $pdf->download('cetak_artikel.pdf');
-    }
+        $pdf = PDF::loadview('layout.articles_pdf',['article'=>$article]);
+        return $pdf->stream();
+       }
+
+    // public function cetak_pdf(){
+    //     $article = \App\Article::all();
+    //     $page = 'Artikel';
+    //     $pdf = PDF::loadview('layout.articles_pdf',
+    //         [
+    //             'article'=>$article,
+    //         ]);
+    //     return $pdf->stream();
+    // }
 /*public function hal($id){
         return 'Halaman ID : '.$id;
     }

@@ -20,7 +20,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-9 mx-auto">
-            <form action="/manageuser/create" method="POST">
+            <form action="/manageuser/create" method="POST" enctype="multipart/form-data>
                 {{ csrf_field() }}
                 <div class="form-group">
                     <label for="name">Nama</label>
@@ -41,7 +41,13 @@
                     <label for="roles">Roles</label>
                     <input type="text" class="form-control"
                     required="required" name="roles"><br>
-                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="image">Feature Image</label>
+                    <input type="file" class="form-control" required="required"
+                   name="image"><br>
+                   </div>
+
                 <button type="submit" name="add" class="btn btnprimary float-right">Tambah Data</button>
                 </form>
         </div>

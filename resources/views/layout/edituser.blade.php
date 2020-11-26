@@ -20,7 +20,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-9 mx-auto">
-            <form action="/manageuser/update/{{$users->id}}" method="POST">
+            <form action="/manageuser/update/{{$users->id}}" method="POST" enctype="multipart/form-data">
                 {{csrf_field()}}
                 <input type="hidden" name="id" value="{{$users->id}}"><br>
                 <div class="form-group">
@@ -42,7 +42,14 @@
                     <label for="roles">Roles</label>
                     <input type="text" class="form-control"
                     required="required" name="roles" value="{{$users->roles}}"><br>
+                </div>
+                <div class="form-group">
+                    <label for="image">Profile</label>
+                    <input type="file" class="form-control" required="required"
+                   name="image" value="{{$users->profile}}"><br>
+                    <img width="150px" src="{{asset('storage/'.$users->profile)}}">
                     </div>
+
                 <button type="submit" name="edit" class="btn btnprimary float-right">Ubah Data</button>
                 </form>
         </div>

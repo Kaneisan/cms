@@ -22,6 +22,7 @@
         <div class="col-lg-40 mx-auto">
             <table class="table table-bordered table-striped">
                 <a href="manageuser/add" class="btn btn-primary">Tambah Data</a>
+                <button type="button" class="btn btn-info"><a href="/manageuser/cetak_pdf" target="_blank" class="badge badgedanger">Cetak PDF</a></button></td>
                 <thead class="thead-dark">
                     <tr>
                         <th style="text-align:center">No</th>

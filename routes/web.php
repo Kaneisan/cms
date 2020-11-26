@@ -47,7 +47,7 @@ Route::post('/manage/create','ArticleController@create');
 Route::get('/manage/edit/{id}','ArticleController@edit');
 Route::post('/manage/update/{id}','ArticleController@update');
 Route::get('/manage/delete/{id}','ArticleController@delete');
-Route::get('/manage/cetak_pdf', 'ArticleController@cetak_pdf')->name('cetak');
+Route::get('/manage/cetak_pdf', 'ArticleController@cetak_pdf');
 // Route::get('/manage/cetak_pdf/{id}', 'ArticleController@cetak_pdf');
 
 Route::get('/data', 'DataController');
@@ -63,4 +63,5 @@ Route::get('/manageuser/edit/{id}', 'UserController@edit');
 Route::post('/manageuser/update/{id}', 'UserController@update');
 Route::get('/manageuser/delete', 'UserController@delete');
 Route::get('/manageuser/delete/{id}', 'UserController@delete');
+Route::get('/manageuser/cetak_pdf', 'UserController@cetak_pdf');
 
